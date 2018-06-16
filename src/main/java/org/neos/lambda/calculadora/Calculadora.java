@@ -5,7 +5,7 @@ package org.neos.lambda.calculadora;
  *         15/06/2018
  */
 public class Calculadora {
-    
+
     private double operadorA;
     private double operadorB;
     private String operacion;

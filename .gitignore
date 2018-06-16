@@ -13,6 +13,13 @@ local.properties
 
 
 
+# IntelliJ project files 
+*.iml
+*.iws
+*.ipr
+.idea/
+
+
 target/
 pom.xml.tag
 pom.xml.releaseBackup

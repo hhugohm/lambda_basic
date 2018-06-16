@@ -1,27 +1,25 @@
 package org.neos.lambda.calculadora;
 
 /**
- * 
  * @author Hugo Hidalgo
- * 15/06/2018
- *
+ *         15/06/2018
  */
-public class Calculadora   {
-
-
+public class Calculadora {
+    
     private double operadorA;
     private double operadorB;
     private String operacion;
     private double resultado;
 
-    public Calculadora() {}
+    public Calculadora() {
+    }
 
     public Calculadora(double operadorA, double operadorB) {
         this.operadorA = operadorA;
         this.operadorB = operadorB;
     }
 
-    public Calculadora(double operadorA, double operadorB,String operacion) {
+    public Calculadora(double operadorA, double operadorB, String operacion) {
         this.operadorA = operadorA;
         this.operadorB = operadorB;
         this.operacion = operacion;
@@ -58,54 +56,54 @@ public class Calculadora   {
     public void setResultado(double resultado) {
         this.resultado = resultado;
     }
-    
+
     public IOperacion executeOperacion() {
-		return (Calculadora::execute);
-	}
+        return (Calculadora::execute);
+    }
 
     private IOperationSuma sum() {
-    	return calculadora -> 
-    						calculadora.getOperadorA() +
-    						calculadora.getOperadorB();
+        return calculadora ->
+                calculadora.getOperadorA() +
+                        calculadora.getOperadorB();
     }
-    
+
     private IOperationResta rest() {
-    	return calculadora -> calculadora.getOperadorA() -
-    						  calculadora.getOperadorB();
+        return calculadora -> calculadora.getOperadorA() -
+                calculadora.getOperadorB();
     }
-    
+
     private IOperationMultiplicacion mult() {
-    	return calculadora -> calculadora.getOperadorA() * 
-    						  calculadora.getOperadorB();
+        return calculadora -> calculadora.getOperadorA() *
+                calculadora.getOperadorB();
     }
-    
+
     private IOperationDivision div() {
-    	return calculadora -> calculadora.getOperadorA() / 
-    						  calculadora.getOperadorB();
+        return calculadora -> calculadora.getOperadorA() /
+                calculadora.getOperadorB();
     }
-		
-	private static void execute(Calculadora calculadora) {
-		switch (calculadora.getOperacion()) {
-		case "+": {
-			calculadora.setResultado(calculadora.sum().suma(calculadora));
-			break;
-		}
-		case "-": {
-			calculadora.setResultado(calculadora.rest().resta(calculadora));
-			break;
-		}
-		case "*": {
-			calculadora.setResultado(calculadora.mult().multiplica(calculadora));
-			break;
-		}
-		case "/": {
-			calculadora.setResultado(calculadora.div().divide(calculadora));
-			break;
-		}
-		default: {
-			break;
-		}
-		}
-	}
-  
+
+    private static void execute(Calculadora calculadora) {
+        switch (calculadora.getOperacion()) {
+            case "+": {
+                calculadora.setResultado(calculadora.sum().suma(calculadora));
+                break;
+            }
+            case "-": {
+                calculadora.setResultado(calculadora.rest().resta(calculadora));
+                break;
+            }
+            case "*": {
+                calculadora.setResultado(calculadora.mult().multiplica(calculadora));
+                break;
+            }
+            case "/": {
+                calculadora.setResultado(calculadora.div().divide(calculadora));
+                break;
+            }
+            default: {
+                break;
+            }
+        }
+    }
+
 }
